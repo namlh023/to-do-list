@@ -1,0 +1,39 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+
+  font-size: 0.75rem;
+  line-height: 1em;
+  font-weight: var(--fw-400);
+  color: var(--clr-5);
+
+  &__btn {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    font-size: 0.75rem;
+    line-height: 1em;
+    font-weight: var(--fw-400);
+    color: var(--clr-5);
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    .filter-btn {
+      font-size: 0.8rem;
+      line-height: 1em;
+      font-weight: var(--fw-700);
+      color: var(--clr-5);
+    }
+  }
+}

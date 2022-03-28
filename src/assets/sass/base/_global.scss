@@ -1,0 +1,37 @@
+@use "./font";
+@use "./root";
+@use "./reset";
+@use "../../../features/header/header";
+@use "../../../features/todoInput/todoInput";
+@use "../../../features/todoList/todoList";
+@use "../../../features/footer/footer";
+
+body {
+  font-family: var(--ff-primary);
+}
+
+.wrapper {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-image: url("../../images/bg-desktop-light.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 30%;
+  background-position: top;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 30rem;
+  padding: 2rem;
+}
+
+.h1-like {
+  color: #fff;
+  font-weight: var(--fw-700);
+  font-size: 2rem;
+  line-height: 2rem;
+  letter-spacing: 0.2rem;
+}

@@ -1,0 +1,37 @@
+.todo-input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fff;
+  gap: 0.5rem;
+
+  height: 2.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  border-radius: 0.2rem;
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+
+  &:focus-within {
+    outline: 0.15rem solid var(--clr-4);
+  }
+
+  .cirlce {
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #fff;
+    // border-radius: 100%;
+    border: 2px solid var(--clr-5);
+  }
+
+  input {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+
+    ::placeholder {
+      font-weight: var(--fw-400);
+      font-size: 12px;
+    }
+  }
+}
