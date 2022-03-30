@@ -2,7 +2,7 @@ import { useSelector, shallowEqual } from "react-redux";
 import TodoListItem from "./todoListItem";
 
 export default function TodoList() {
-  const selectTodoIds = (state) => state.todos.map((todo) => todo.id);
+  const selectTodoIds = (state) => state.todo.todos.map((todo) => todo.id);
   const todoIds = useSelector(selectTodoIds, shallowEqual);
 
   return (
