@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { todoAdded } from "../todoList/todoSlice";
 
 export default function TodoInput() {
+  const dispatch = useDispatch();
   const [text, setText] = useState("");
-
   const handleChange = (e) => setText(e.target.value);
-
   const handleKeyDown = (e) => {
     const trimText = e.target.value.trim();
     if (trimText && e.which === 13) {
-      console.log("ENTER");
+      dispatch(todoAdded(trimText));
       setText("");
     }
   };
