@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import _ from "lodash";
+import _, { result } from "lodash";
+import { StatusFilters } from "../footer/filterSlice";
 
 function nextTodoId(todos) {
   const maxId = todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1);
@@ -68,3 +69,42 @@ export const { todoAdded, todoDeleted, todoCompleted, todoClearCompleted } =
   TodoSlice.actions;
 
 export default TodoSlice.reducer;
+
+const todos = (state) => state.todos.todos;
+const status = (state) => state.filters.status;
+
+// export const selectTodoIds = (state) => todos(state).map((todo) => todo.id);
+
+export const selectFilterTodoIds = function (state) {
+  let result = [];
+  const showAllTodos = status(state) === StatusFilters.All;
+  if (showAllTodos) {
+    result = todos(state).map((todo) => todo.id);
+    return result;
+  }
+
+  const showCompletedTodos = status(state) === StatusFilters.Completed;
+  if (showCompletedTodos) {
+    result = todos(state).reduce((todosCompletedID, todo) => {
+      if (todo.completed === true) {
+        todosCompletedID.push(todo.id);
+      }
+      return todosCompletedID;
+    }, []);
+  }
+
+  const showActiveTodos = status(state) === StatusFilters.Active;
+  if (showActiveTodos) {
+    result = todos(state).reduce((todosActiveID, todo) => {
+      if (todo.completed === false) {
+        todosActiveID.push(todo.id);
+      }
+      return todosActiveID;
+    }, []);
+  }
+
+  return result;
+};
+
+export const selectTodoById = (state, id) =>
+  todos(state).filter((todo) => todo.id === id);
